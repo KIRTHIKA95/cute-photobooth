@@ -1,0 +1,194 @@
+/* --- Mise en page globale --- */
+.photobooth-app {
+  background: #ffeef2;
+  min-height: 100vh;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- Écran de sélection des cadres --- */
+.frames-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.frame-option {
+  width: 150px;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.frame-option:hover {
+  transform: scale(1.05);
+}
+
+.frame-option img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* --- Interface de capture --- */
+.capture-screen {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+.webcam-container {
+  position: relative;
+  width: 320px;
+  height: 240px;
+  border: 4px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+}
+
+.webcam-view {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timer-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* --- LE MONTAGE FINAL (STRIP) --- */
+.final-photobooth-container {
+  position: relative;
+  width: 230px;
+  height: 750px; /* Augmente ici de 600 à 800 */
+  background: white;
+  overflow: visible; /* Change "hidden" en "visible" pour voir où ça va */
+}
+
+.frame-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Change 129% en 100% pour qu'il rentre pile dans les 800px */
+  z-index: 2;
+}
+
+/* La grille qui contient les photos (COUCHE DE DESSOUS) */
+.photos-grid-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 83%;
+  height: 83%;
+  z-index: 1; /* Derrière le cadre */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* --- RÉGLAGES DE PRÉCISION PAR CADRE --- */
+/* On ajuste le padding pour que les photos "visent" les trous transparents du PNG */
+
+/* Cadre heart-frame.png (Sweet) */
+.grid-sweet { 
+  padding: 0px 20px 0px 20px; 
+  gap: 0px;
+  grid-template-rows: 1fr 0.9fr 0.9fr 0.9fr;
+}
+
+/* Cadre heart-frame-2.png (Hugs & Kisses) */
+.grid-hugs { 
+  padding: 0px 20px 0px 20px; 
+  gap: 0px;
+   grid-template-rows: 1fr 0.9fr 0.9fr 0.9fr;
+}
+
+/* Cadre heart-frame-3.png (CUTE avec le cœur) */
+.grid-cute { 
+  padding: 0px 20px 0px 20px; 
+  gap: 0px;
+  grid-template-rows: 1fr 0.9fr 0.9fr 0.9fr; /* La 2ème ligne est plus grande pour le cœur */
+}
+
+/* Cadre heart-frame-4.png (Love avec les 4 cœurs) */
+.grid-love { 
+  padding: 0px 0px 0px 20px; 
+  gap: 0px;
+  grid-template-rows: repeat(4, 1fr); 
+}
+
+.individual-photo-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.captured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit le trou sans déformer le visage */
+}
+
+.empty-slot {
+  width: 100%;
+  height: 100%;
+  background: #e4b4bd;
+}
+
+/* --- Boutons --- */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-take {
+  background: #ff85a1;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-back {
+  background: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-download {
+  background: #4caf50; /* Vert pour bien le différencier */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-download:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
